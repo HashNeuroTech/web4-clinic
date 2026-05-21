@@ -1,6 +1,7 @@
 'use client';
 import { Wallet, ArrowRight, ShieldCheck, Coins } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link'; // 确保引入了 Link
 
 export default function WalletPay() {
   return (
@@ -30,12 +31,15 @@ export default function WalletPay() {
           </div>
         </div>
 
-        <button className="shrink-0 flex items-center gap-4 bg-cyan-500 text-slate-950 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_40px_rgba(6,182,212,0.3)]">
+        {/* 关键修改：将 <button> 改为 <Link> */}
+        <Link 
+          href="/digital-wallet" 
+          className="shrink-0 flex items-center gap-4 bg-cyan-500 text-slate-950 px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-[0_0_40px_rgba(6,182,212,0.3)]"
+        >
           <Wallet size={20} /> 资产提现 / 支付 <ArrowRight size={18} />
-        </button>
+        </Link>
       </div>
       
-      {/* 装饰：右下角巨大的虚幻图标 */}
       <div className="absolute -right-20 -bottom-20 opacity-[0.02] text-white">
         <Coins size={400} />
       </div>

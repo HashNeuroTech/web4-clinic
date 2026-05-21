@@ -16,7 +16,7 @@ export default function Home() {
         <Hero />
       </section>
 
-      {/* 2. 四大 AI 矩阵 (Core Capabilities) */}
+      {/* 2. 十大 AI 矩阵 (Core Capabilities) */}
       <section id="services" className="container mx-auto px-6 scroll-mt-24 relative z-10">
         <div className="flex flex-col items-center mb-16">
           <div className="flex items-center gap-2 mb-3">
