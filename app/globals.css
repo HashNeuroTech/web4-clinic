@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  /* 直接将深色设定为默认，不再判断系统模式 */
+  --background: #020617; 
+  --foreground: #f1f5f9;
+  --accent: #22d3ee;
+  
+  /* 磨砂玻璃材质 */
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+}
+
+body {
+  /* 强制背景为深靛青 */
+  background-color: var(--background) !important;
+  color: var(--foreground);
+  
+  /* 注入赛博网格与顶部氛围光 */
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(34, 211, 238, 0.15), transparent),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+  
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 统一高级感组件 */
+@layer components {
+  .clinic-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .clinic-card:hover {
+    border-color: rgba(34, 211, 238, 0.4);
+    background: rgba(15, 23, 42, 0.8);
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+  }
+}
